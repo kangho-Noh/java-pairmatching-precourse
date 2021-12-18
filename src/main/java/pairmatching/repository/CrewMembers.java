@@ -18,4 +18,13 @@ public class CrewMembers {
 	public static List<Crew> getCrewsByCourse(Course course) {
 		return crewMembers.get(course);
 	}
+
+	public static void initFriends() {
+		for (Course course : Course.values()) {
+			List<Crew> crews = crewMembers.get(course);
+			for (Crew crew : crews) {
+				crew.initFriends();
+			}
+		}
+	}
 }

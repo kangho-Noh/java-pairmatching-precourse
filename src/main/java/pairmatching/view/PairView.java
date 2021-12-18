@@ -2,7 +2,7 @@ package pairmatching.view;
 
 import java.util.List;
 
-import pairmatching.domain.Crew;
+import pairmatching.domain.Pair;
 
 public class PairView {
 	private static final int EVEN = 0;
@@ -37,31 +37,17 @@ public class PairView {
 		System.out.println(REMATCH_ASK);
 	}
 
-	public static void printFailToMatch() {
-
-	}
-
-	public static void printPair(List<Crew> crews) {
-		int i;
-		if (crews.size() % 2 == EVEN) {
-			for (i = 0; i < crews.size(); i += 2) {
-				String name1 = String.valueOf(crews.get(i));
-				String name2 = String.valueOf(crews.get(i + 1));
-
+	public static void printPair(List<Pair> pairs) {
+		for (Pair pair : pairs) {
+			String name1 = String.valueOf(pair.getCrew1());
+			String name2 = String.valueOf(pair.getCrew2());
+			String name3 = String.valueOf(pair.getCrew3());
+			if (pair.getCount() == 3) {
+				System.out.printf(PAIR_FORMAT_THREE, name1, name2, name3);
+			}
+			if (pair.getCount() == 2) {
 				System.out.printf(PAIR_FORMAT_TWO, name1, name2);
 			}
-		}
-		if (crews.size() % 2 == ODD) {
-			for (i = 0; i < crews.size() - 3; i += 2) {
-				String name1 = String.valueOf(crews.get(i));
-				String name2 = String.valueOf(crews.get(i + 1));
-				System.out.printf(PAIR_FORMAT_TWO, name1, name2);
-			}
-			i = crews.size();
-			String name1 = String.valueOf(crews.get(i - 3));
-			String name2 = String.valueOf(crews.get(i - 2));
-			String name3 = String.valueOf(crews.get(i - 1));
-			System.out.printf(PAIR_FORMAT_THREE, name1, name2, name3);
 		}
 		System.out.println();
 

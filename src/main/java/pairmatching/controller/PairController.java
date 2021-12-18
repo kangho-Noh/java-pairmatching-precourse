@@ -8,6 +8,7 @@ import pairmatching.domain.Course;
 import pairmatching.domain.Crew;
 import pairmatching.domain.Level;
 import pairmatching.domain.Mission;
+import pairmatching.domain.Pair;
 import pairmatching.domain.PairKey;
 import pairmatching.repository.PairMap;
 import pairmatching.service.PairMatchingService;
@@ -88,7 +89,7 @@ public class PairController {
 
 	private static void printResult(List<String> input) {
 		PairKey key = getKey(input);
-		List<Crew> crews = PairMap.getCrewsByKey(key);
+		List<Pair> crews = PairMap.getCrewsByKey(key);
 		try {
 			Validator.checkMatchingResultExist(crews);
 			PairView.printPair(crews);
@@ -98,7 +99,6 @@ public class PairController {
 	}
 
 	private static PairKey getKey(List<String> input) {
-
 		String course = input.get(0);
 		String level = input.get(1);
 		String mission = input.get(2);

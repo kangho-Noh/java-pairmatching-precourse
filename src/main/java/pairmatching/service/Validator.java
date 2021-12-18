@@ -9,6 +9,7 @@ import pairmatching.domain.Crew;
 import pairmatching.domain.Level;
 import pairmatching.domain.Menu;
 import pairmatching.domain.Mission;
+import pairmatching.domain.Pair;
 
 public class Validator {
 
@@ -79,7 +80,7 @@ public class Validator {
 		}
 	}
 
-	public static void checkMatchingResultExist(List<Crew> crews) {
+	public static void checkMatchingResultExist(List<Pair> crews) {
 		if (crews == null) {
 			throw new IllegalArgumentException("페어 매칭 결과가 존재하지 않습니다.");
 		}
